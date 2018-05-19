@@ -1,0 +1,48 @@
+<ActionBar title="test" class="actbardark">
+    <StackLayout (doubleTap)="onDoubleTap($event)" orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+        <Image src="~/images/logo_bianco.png" height="10%" class="action-image"></Image>
+
+    </StackLayout>
+    
+</ActionBar>
+
+
+      <GridLayout (swipe)="onSwipe($event)" class="homepage" columns="*" rows="3*,2*" height="100%" width="100%" *ngIf="showSlide==false">
+
+      <StackLayout class="infocontainer" height="100%" width="100%"  orientation="vertical" minHeight="70">
+
+
+            <StackLayout class="input-field textfield" width="100%" orientation="vertical">
+                <TextField (focus)="onFocusMail()" (blur)="onBlurMail()" *ngIf="validMail==false" [ngClass]="{ 'fielderr': validMail==false,'fieldok':validMail==true}"
+                    (ngModelChange)="onChangeMail($event)" style="color:red" dock="top" hint="Email Address" [(ngModel)]="userMail"
+                    autocorrect="false" autocapitalizationType="none"></TextField>
+                <TextField *ngIf="validMail==true" dock="top" hint="Email Address" (focus)="onFocus($event)" [(ngModel)]="userMail" autocorrect="false"
+                    autocapitalizationType="none"></TextField>
+            </StackLayout>
+
+
+            <DockLayout width="100%" stretchLastChild="false">
+                    <CheckBox dock="left" id="cbprivacy"  style="color:white" #CB1 text="Accetto il trattamento dei dati come specificato nelle privacy policy"
+                    fillColor="white" checked="false"></CheckBox>
+                    <!-- <GridLayout dock="left" columns="5*,*" width="100%">
+                         
+                            
+                    </GridLayout>
+             -->
+             <label (tap)="readPrivacy()" style="color:white; padding-top: 20px" dock="right" text="Scopri di più" ></label>
+            </DockLayout>
+           
+            <Button dock="top" width="60%" class="btn btn-primary btn-active bxbButton" id="button" text="Registra" (tap)="onTap($event)"></Button>
+
+        </StackLayout>
+       
+    </GridLayout>
+    <StackLayout class="picslider" *ngIf="showSlide==true" (tap)="hideSlider()" height="100%" width="100%" clasd="m-15">
+        <Image width="100%" height="100%" [src]="myImageSource"></Image>
+    </StackLayout> 
+<!-- 
+    <StackLayout class="picslider" *ngIf="showSlide==true" (tap)="hideSlider()" height="100%" width="100%" clasd="m-15">
+        <Image width="100%" height="100%" [src]="myImageSource"></Image>
+    </StackLayout> -->
+
+

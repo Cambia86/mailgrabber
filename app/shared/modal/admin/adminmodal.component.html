@@ -1,0 +1,12 @@
+<StackLayout margin="24" horizontalAlignment="center" verticalAlignment="center">
+    <StackLayout class="width200" style.verticalAlignment="center" style.textAlignment="center">
+            <StackLayout class="input-field textfield" width="100%" orientation="vertical">
+                    <TextField [ngClass]="{'fielderr': validMail==false}"   dock="top" hint="Password"  [(ngModel)]="Password" autocorrect="false" autocapitalizationType="none"></TextField>
+                </StackLayout>
+    
+    
+                <Button dock="top" width="80%" class="btn btn-primary btn-active" id="button" text="OK" (tap)="onTap($event)"></Button>
+    
+  
+    </StackLayout>
+</StackLayout>

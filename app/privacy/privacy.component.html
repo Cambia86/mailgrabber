@@ -1,0 +1,10 @@
+<StackLayout (swipe)="onSwipe($event)" class="homepage"  height="100%" width="100%">
+
+        <GridLayout columns="*" rows="5*,*" width="100%" >
+                <TextView row="0" col="0" [(ngModel)]="tvtext" hint="Enter some text" returnKeyType="send" (returnPress)="submit($event)" editable="false"
+                class="input input-border policy"></TextView>
+                <Button row="1" col="0" width="60%" class="btn btn-primary btn-active bxbButton" id="button" text="Indietro" (tap)="back($event)"></Button>
+        </GridLayout>
+
+   
+</StackLayout>

@@ -1,0 +1,70 @@
+@import "nativescript-theme-core/css/core.light.css";
+
+.homepage{
+    background-image: url("~/images/sfondo2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index:10;
+}
+
+.txtbox{
+    background-color: white;
+    z-index: 20;
+}
+
+
+
+.textfield{
+    z-index: 20;
+    background-color: white;
+    color: black;
+}
+
+.bxbButton{
+    background-color: transparent;
+    border-color:white;
+    border-width: 0.5;
+    border-radius: 7px; 
+border-style: groove;
+}
+
+fielderr{
+   color:red;
+}
+
+
+fieldok{
+    color:black;
+ }
+
+.picslider{
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    z-index:10;
+    background-color: #000;
+}
+
+.infocontainer{
+    margin-top:20%;
+    margin-left:10%;
+    margin-right:10%;
+    padding-left:20%;
+    padding-right:20%;
+}
+
+.action-image{
+    height: 100px;
+    width: 200px;
+}
+
+.actbardark{
+    background-color: #000;
+}
+
+.policy{
+    background-color: white;
+    padding: 10%;
+    margin: 50px;
+}
