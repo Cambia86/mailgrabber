@@ -4,15 +4,18 @@ import { ModalDialogService } from "nativescript-angular/directives/dialogs";
 import { admimmodal } from '../shared/modal/admin/adminmodal.component'
 import { EventData } from "data/observable";
 import { Button } from "ui/button";
-var Sqlite = require("nativescript-sqlite");
-// import { formArrayNameProvider } from "@angular/forms";
-import * as fs from "file-system"
-import * as permissions from "nativescript-permissions";
+import { routes } from "../app.routing";
 import { confirmmodal } from "~/shared/modal/confirm/confirm.component";
 import { platformNativeScriptDynamic } from "nativescript-angular/platform";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Router, NavigationStart, NavigationEnd } from "@angular/router";
-import { routes } from "../app.routing";
+
+var Sqlite = require("nativescript-sqlite");
+// import { formArrayNameProvider } from "@angular/forms";
+import * as fs from "file-system"
+import * as permissions from "nativescript-permissions";
+
+
 import {
   GestureEventData,
   PanGestureEventData,
@@ -21,6 +24,8 @@ import {
   SwipeGestureEventData,
   TouchGestureEventData
 } from "ui/gestures";
+const app = require("application")
+
 
 declare var android: any;
 export class userRegistration {
@@ -63,6 +68,12 @@ export class HomeComponent implements OnInit {
     private modal: ModalDialogService,
     private router:Router) {
     page.actionBarHidden = true;
+
+    if (app.android) {
+      const activity = app.android.startActivity;
+      const win = activity.getWindow();
+      win.addFlags(android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN);
+  }
 
     this.people = [];
     (new Sqlite("my.maildb")).then(db => {

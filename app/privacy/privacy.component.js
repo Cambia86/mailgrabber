@@ -2,30 +2,64 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-// @Component({
-//     selector: "first",
-//     template: `
-//         <StackLayout>
-//             <Label text="First component" class="title"></Label>
-//             <Button text="GO TO SECOND" [nsRouterLink]="['/second']" class="link"></Button>
-//         </StackLayout>
-//     `
-// })
-// export class FirstComponent { }
-// @Component({
-//     selector: "second",
-//     template: `
-//         <StackLayout>
-//             <Label text="Second component" class="title"></Label>
-//             <Button text="GO TO FIRST" [nsRouterLink]="['/first']" class="link"></Button>
-//         </StackLayout>
-//     `
-// })
-// export class SecondComponent { }
 var PrivacyComponent = /** @class */ (function () {
     function PrivacyComponent(router) {
         this.router = router;
-        this.tvtext = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quam nulla, commodo eget gravida sed, tristique sed ante. Mauris auctor, lorem id tincidunt tempor, velit nunc pharetra dolor, at ullamcorper nisl erat in eros. Sed tincidunt elit ac augue ultrices, aliquet pretium orci cursus. Aliquam semper sagittis magna sit amet semper. Etiam ligula odio, convallis non rutrum nec, finibus ut ex. Vestibulum pellentesque aliquet justo, id maximus justo pulvinar non. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur posuere nec odio eu porttitor. Pellentesque tellus nulla, condimentum quis arcu ut, venenatis elementum nunc. Morbi condimentum ac lectus et condimentum. Phasellus in dictum nibh. Curabitur sed lobortis velit. Cras hendrerit eros in erat feugiat, id aliquet enim gravida.";
+        this.tvtext = "Informativa resa ai sensi dell’art.13 del Regolamento UE 679/2016, a coloro che interagiscono con i servizi web di Malloy Distribution Srl:" +
+            "Malloy Distribution Srl riconosce l’importanza della protezione dei dati personali, si impegna a rispettare la privacy degli utilizzatori, a trattare i dati privati con cautela e riservatezza ed a non utilizzarli per finalità diverse da quelle specificate in seguito." +
+            "A tal fine, in questa policy si descrivono le modalità di gestione del sito in riferimento al trattamento dei dati personali degli utenti che lo consultano. " +
+            "Questa Policy potrà essere modificata o aggiornata in qualsiasi momento da Malloy Distribution Srl." +
+            "L’informativa è resa solo per il presente sito e non anche per altri siti web eventualmente consultati dall’utente tramite link." +
+            "Titolare del trattamento" +
+            "Il Titolare del trattamento è: Malloy Distribution Srl, Via Michelangelo Buonarroti 5, 20090 Segrate (MI), d’ora in avanti anche “Malloy”." +
+            "Dati e finalità del trattamento" +
+            "Malloy informa gli utenti del sito che i dati raccolti verranno utilizzati esclusivamente per gli scopi specificati di seguito. I dati oggetto del trattamento sono i dati di navigazione e i dati forniti volontariamente dall’utente. " +
+            "1. Dati di navigazione" +
+            "I sistemi informatici preposti al funzionamento del sito web acquisiscono alcuni dati necessari al funzionamento della piattaforma ed informazioni la cui trasmissione è implicita nei protocolli utilizzati per la connessione e la navigazione internet." +
+            "Vengono anche acquisiti alcune informazioni relative alla sessione del browser e dati generici relativi al dispositivo utilizzato dall’utente. Tutti i dati vengono acquisiti in forma anonima e non riconducibili, comunque, ad un utente specifico o per finalità di profilazione." +
+            "2. Dati forniti volontariamente dall’utente -area lavora con noi" +
+            "L’utente, per accedere ad alcuni servizi del sito web (sezione “lavora con noi”) fornisce a Malloy diverse tipologie di dati in forma spontanea previa presa visione della presente informativa ed eventuale consenso al trattamento per uno o più dei fini previsti ed elencati di seguito." +
+            "3. Dati forniti volontariamente dall’utente -iscrizione alla newsletter" +
+            "L’utente, per accedere ad alcuni servizi del sito web (sezione “lavora con noi”) fornisce a Malloy diverse tipologie di dati in forma spontanea previa presa visione della presente informativa ed eventuale consenso al trattamento per uno o più dei fini previsti ed elencati di seguito." +
+            "4. Dati forniti volontariamente dall’utente – registrazione utente e profilazione" +
+            "In fase di registrazione, nell’area dedicata del sito, sarà prevista nei confronti dell’utente un’esplicita richiesta di consenso all’attività di profilazione al fine di poter inviare comunicazioni commerciale maggiormente in linea con le abitudini e preferenze di consumo dell’utente. Mediante la profilazione, infatti, si raccolgono informazioni su un individuo (o gruppo di individui), si analizzano le sue caratteristiche o modelli di comportamento e si inserisce il profilo individuale in una certa “categoria” o “segmento” per dar luogo ad ulteriori valutazioni o previsioni riguardanti, ad esempio, i suoi interessi o comportamento probabile." +
+            "5. Dati forniti volontariamente dal cliente presso i punti vendita – indirizzo mail" +
+            "L’inserimento dell’indirizzo e-mail da parte del cliente, all’interno dei dispositivi all’interno dei punti vendita “Boxeur Des Rues”, consente a Malloy Distribution Srl di contattare il cliente per le finalità di seguito elencate e comunque senza effettuare attività di profilazione. Sarà sempre possibile per il cliente esercitare i propri diritti previsti in qualità di interessato. " +
+            " Malloy utilizzerà i dati raccolti per:" +
+            "a)	finalità connesse all’utilizzo dei servizi offerti dal sito (navigazione sito);" +
+            "b)	attività strettamente connesse e strumentali alla gestione dei rapporti con la clientela e dei potenziali collaboratori (richieste di contatto);" +
+            "c)	attività di marketing, anche dietro eventuale specifico consenso dell’utente, finalizzate a ricerche di mercato; analisi economiche e statistiche; invio di materiale pubblicitario/informativo/promozionale, invio di newsletters, altresì in relazione a programmi e promozioni, anche on-line, comunicazioni, sviluppo e mantenimento dei rapporti commerciali." +
+            "d)	trattare i dati relativi a curricula per valutazione candidature lavorative." +
+            "Il conferimento dei dati per le finalità di cui alle lettere c) d) è facoltativo e deve essere prestato secondo le modalità espressamente previste dall’articolo 7 del GDPR, direttamente dal sito internet." +
+            "Le comunicazioni relative all’attività di marketing potranno avvenire mediante l’utilizzo di modalità tradizionali (es., posta cartacea, telefonate con operatore), automatizzate (es., telefonate senza operatore) ed assimilabili (es: fax, e-mail, sms, newsletter)." +
+            "Salvo dissenso, Malloy potrà continuare a inviare a propri clienti le comunicazioni commerciali relative a servizi analoghi a quelli cui stanno già usufruendo." +
+            "Modalità di trattamento" +
+            "Il trattamento dei dati verrà realizzato ai sensi dell’Art. 4 n. 2) del GDPR, per mezzo delle seguenti operazioni: raccolta, registrazione, organizzazione, conservazione, consultazione, elaborazione, modificazione, selezione, estrazione, raffronto, utilizzo, interconnessione, blocco, comunicazione, cancellazione e distruzione dei dati." +
+            "I dati verranno sottoposti a trattamento sia cartaceo che elettronico e/o automatizzato." +
+            "I dati a partire dal loro ricevimento/aggiornamento, saranno conservati per un periodo congruo rispetto alle finalità del trattamento sopra riportate. Per avere maggiori informazioni rispetto ai termini di conservazione dei dati è possibile scrivere a privacy@boxeurdesrues.com." +
+            "Comunicazione e trasferimento dei dati" +
+            "I dati, oggetto del trattamento, non saranno diffusi; potranno invece, per le finalità indicate nella presente informativa, essere comunicati a soggetti terzi, tra cui partners commerciali, consulenti e liberi professionisti, banche ed istituti di credito, assicurazioni, società finanziarie, di factoring, di leasing, di servizi, di gestione e di recupero del credito, revisori dei conti, società di recupero crediti, Enti pubblici, Organismi di revisione o vigilanza, per adempiere ad obblighi derivanti dalla legge, regolamenti, normative comunitarie o per aspetti riguardanti la gestione ed esecuzione del rapporto giuridico con Voi intercorrenti o intercorsi." +
+            "I dati verranno trattati dai seguenti soggetti:" +
+            "•	Dipendenti della società che operano come persone autorizzate al trattamento dei dati in funzione delle mansioni svolte ed adeguatamente istruite." +
+            "•	Responsabili Esterni ai sensi dell’art.28 GDPR." +
+            "" +
+            "L’elenco dei Responsabili per il trattamento dei dati personali è disponibile presso la sede legale di Malloy. " +
+            "Per tutte le finalità indicate nella presente informativa i dati potranno essere comunicati anche all’estero, all’interno e all’esterno dell’Unione Europea, nel rispetto dei diritti e delle garanzie previsti dalla normativa vigente, previa verifica che il Paese in questione garantisca un livello di protezione 'adeguato' ai sensi di quanto previsto dal GDPR. " +
+            "Diritti dell’interessato " +
+            "Si precisa che nella qualità di interessati, in qualsiasi momento si potrà chiedere: " +
+            "a)	l’accesso ai dati personali;" +
+            "b)	la loro rettifica in caso di inesattezza;" +
+            "c)	la cancellazione;" +
+            "d)	la limitazione del trattamento;" +
+            "e)	il diritto di opposizione al trattamento dei dati ove ricorrano i presupposti;" +
+            "a)	il diritto alla portabilità dei dati, ossia di ricevere in un formato strutturato di uso comune e leggibile da dispositivo automatico, i dati personali forniti." +
+            "Per quanto non espressamente previsto dalle disposizioni quivi richiamate si rimanda integralmente alla normativa in vigore in tema Privacy e specificatamente agli artt. 15, 16, 17, 18, 20 e 21 del GDPR." +
+            "Revoca del consenso" +
+            "Il consenso potrà essere revocato, in qualsiasi momento, senza che ciò tuttavia possa:" +
+            "•	pregiudicare la liceità del trattamento basato sul consenso prestato prima della revoca;" +
+            "•	pregiudicare ulteriori trattamenti degli stessi dati fondati su altre basi giuridiche come ad esempio obblighi contrattuali o di legge." +
+            "Per ulteriori delucidazioni circa la presente informativa o su qualsiasi tematica privacy, o nel caso in cui desideriate esercitare i diritti sopra citati o revocare il consenso, potrete scrivere a privacy@boxeurdesrues.com." +
+            "";
     }
     PrivacyComponent.prototype.back = function () {
         this.router.navigate(["/home"]);
@@ -41,4 +75,3 @@ var PrivacyComponent = /** @class */ (function () {
     return PrivacyComponent;
 }());
 exports.PrivacyComponent = PrivacyComponent;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJpdmFjeS5jb21wb25lbnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJwcml2YWN5LmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLHNDQUEwQztBQUMxQywwQ0FBeUU7QUFDekUsZUFBZTtBQUNmLHlCQUF5QjtBQUN6QixrQkFBa0I7QUFDbEIsd0JBQXdCO0FBQ3hCLG1FQUFtRTtBQUNuRSw4RkFBOEY7QUFDOUYseUJBQXlCO0FBQ3pCLFFBQVE7QUFDUixLQUFLO0FBQ0wsa0NBQWtDO0FBRWxDLGVBQWU7QUFDZiwwQkFBMEI7QUFDMUIsa0JBQWtCO0FBQ2xCLHdCQUF3QjtBQUN4QixvRUFBb0U7QUFDcEUsNEZBQTRGO0FBQzVGLHlCQUF5QjtBQUN6QixRQUFRO0FBQ1IsS0FBSztBQUNMLG1DQUFtQztBQVlqQztJQUdFLDBCQUFvQixNQUFhO1FBQWIsV0FBTSxHQUFOLE1BQU0sQ0FBTztRQUYxQixXQUFNLEdBQUMsdTBCQUF1MEIsQ0FBQTtJQUlyMUIsQ0FBQztJQUVELCtCQUFJLEdBQUo7UUFDSSxJQUFJLENBQUMsTUFBTSxDQUFDLFFBQVEsQ0FBQyxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUE7SUFDbkMsQ0FBQztJQVRVLGdCQUFnQjtRQVI5QixnQkFBUyxDQUFDO1lBQ1AsUUFBUSxFQUFFLE1BQU0sQ0FBQyxFQUFFO1lBQ25CLFFBQVEsRUFBRSxhQUFhO1lBQ3ZCLFdBQVcsRUFBRSwwQkFBMEI7U0FDeEMsQ0FBQzt5Q0FPMkIsZUFBTTtPQUh0QixnQkFBZ0IsQ0FVNUI7SUFBRCx1QkFBQztDQUFBLEFBVkQsSUFVQztBQVZZLDRDQUFnQiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENvbXBvbmVudCB9IGZyb20gXCJAYW5ndWxhci9jb3JlXCI7XG5pbXBvcnQgeyBSb3V0ZXIsIE5hdmlnYXRpb25TdGFydCwgTmF2aWdhdGlvbkVuZCB9IGZyb20gXCJAYW5ndWxhci9yb3V0ZXJcIjtcbi8vIEBDb21wb25lbnQoe1xuLy8gICAgIHNlbGVjdG9yOiBcImZpcnN0XCIsXG4vLyAgICAgdGVtcGxhdGU6IGBcbi8vICAgICAgICAgPFN0YWNrTGF5b3V0PlxuLy8gICAgICAgICAgICAgPExhYmVsIHRleHQ9XCJGaXJzdCBjb21wb25lbnRcIiBjbGFzcz1cInRpdGxlXCI+PC9MYWJlbD5cbi8vICAgICAgICAgICAgIDxCdXR0b24gdGV4dD1cIkdPIFRPIFNFQ09ORFwiIFtuc1JvdXRlckxpbmtdPVwiWycvc2Vjb25kJ11cIiBjbGFzcz1cImxpbmtcIj48L0J1dHRvbj5cbi8vICAgICAgICAgPC9TdGFja0xheW91dD5cbi8vICAgICBgXG4vLyB9KVxuLy8gZXhwb3J0IGNsYXNzIEZpcnN0Q29tcG9uZW50IHsgfVxuXG4vLyBAQ29tcG9uZW50KHtcbi8vICAgICBzZWxlY3RvcjogXCJzZWNvbmRcIixcbi8vICAgICB0ZW1wbGF0ZTogYFxuLy8gICAgICAgICA8U3RhY2tMYXlvdXQ+XG4vLyAgICAgICAgICAgICA8TGFiZWwgdGV4dD1cIlNlY29uZCBjb21wb25lbnRcIiBjbGFzcz1cInRpdGxlXCI+PC9MYWJlbD5cbi8vICAgICAgICAgICAgIDxCdXR0b24gdGV4dD1cIkdPIFRPIEZJUlNUXCIgW25zUm91dGVyTGlua109XCJbJy9maXJzdCddXCIgY2xhc3M9XCJsaW5rXCI+PC9CdXR0b24+XG4vLyAgICAgICAgIDwvU3RhY2tMYXlvdXQ+XG4vLyAgICAgYFxuLy8gfSlcbi8vIGV4cG9ydCBjbGFzcyBTZWNvbmRDb21wb25lbnQgeyB9XG5cblxuXG5AQ29tcG9uZW50KHtcbiAgICBtb2R1bGVJZDogbW9kdWxlLmlkLFxuICAgIHNlbGVjdG9yOiBcInByaXZhY3ktYXBwXCIsXG4gICAgdGVtcGxhdGVVcmw6ICcuL3ByaXZhY3kuY29tcG9uZW50Lmh0bWwnXG4gIH0pXG4gIFxuICBcbiAgXG4gIGV4cG9ydCBjbGFzcyBQcml2YWN5Q29tcG9uZW50IHtcbiAgICBwdWJsaWMgdHZ0ZXh0PVwiTG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gQWVuZWFuIHF1YW0gbnVsbGEsIGNvbW1vZG8gZWdldCBncmF2aWRhIHNlZCwgdHJpc3RpcXVlIHNlZCBhbnRlLiBNYXVyaXMgYXVjdG9yLCBsb3JlbSBpZCB0aW5jaWR1bnQgdGVtcG9yLCB2ZWxpdCBudW5jIHBoYXJldHJhIGRvbG9yLCBhdCB1bGxhbWNvcnBlciBuaXNsIGVyYXQgaW4gZXJvcy4gU2VkIHRpbmNpZHVudCBlbGl0IGFjIGF1Z3VlIHVsdHJpY2VzLCBhbGlxdWV0IHByZXRpdW0gb3JjaSBjdXJzdXMuIEFsaXF1YW0gc2VtcGVyIHNhZ2l0dGlzIG1hZ25hIHNpdCBhbWV0IHNlbXBlci4gRXRpYW0gbGlndWxhIG9kaW8sIGNvbnZhbGxpcyBub24gcnV0cnVtIG5lYywgZmluaWJ1cyB1dCBleC4gVmVzdGlidWx1bSBwZWxsZW50ZXNxdWUgYWxpcXVldCBqdXN0bywgaWQgbWF4aW11cyBqdXN0byBwdWx2aW5hciBub24uIE9yY2kgdmFyaXVzIG5hdG9xdWUgcGVuYXRpYnVzIGV0IG1hZ25pcyBkaXMgcGFydHVyaWVudCBtb250ZXMsIG5hc2NldHVyIHJpZGljdWx1cyBtdXMuIEN1cmFiaXR1ciBwb3N1ZXJlIG5lYyBvZGlvIGV1IHBvcnR0aXRvci4gUGVsbGVudGVzcXVlIHRlbGx1cyBudWxsYSwgY29uZGltZW50dW0gcXVpcyBhcmN1IHV0LCB2ZW5lbmF0aXMgZWxlbWVudHVtIG51bmMuIE1vcmJpIGNvbmRpbWVudHVtIGFjIGxlY3R1cyBldCBjb25kaW1lbnR1bS4gUGhhc2VsbHVzIGluIGRpY3R1bSBuaWJoLiBDdXJhYml0dXIgc2VkIGxvYm9ydGlzIHZlbGl0LiBDcmFzIGhlbmRyZXJpdCBlcm9zIGluIGVyYXQgZmV1Z2lhdCwgaWQgYWxpcXVldCBlbmltIGdyYXZpZGEuXCJcbiAgXG4gICAgY29uc3RydWN0b3IocHJpdmF0ZSByb3V0ZXI6Um91dGVyKXtcblxuICAgIH1cblxuICAgIGJhY2soKXtcbiAgICAgICAgdGhpcy5yb3V0ZXIubmF2aWdhdGUoW1wiL2hvbWVcIl0pXG4gICAgfVxuICB9Il19

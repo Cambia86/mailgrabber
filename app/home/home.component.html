@@ -12,7 +12,7 @@
       <StackLayout class="infocontainer" height="100%" width="100%"  orientation="vertical" minHeight="70">
 
 
-            <StackLayout class="input-field textfield" width="100%" orientation="vertical">
+            <StackLayout class="input-field textfield" width="70%" orientation="vertical">
                 <TextField (focus)="onFocusMail()" (blur)="onBlurMail()" *ngIf="validMail==false" [ngClass]="{ 'fielderr': validMail==false,'fieldok':validMail==true}"
                     (ngModelChange)="onChangeMail($event)" style="color:red" dock="top" hint="Email Address" [(ngModel)]="userMail"
                     autocorrect="false" autocapitalizationType="none"></TextField>
@@ -21,18 +21,17 @@
             </StackLayout>
 
 
-            <DockLayout width="100%" stretchLastChild="false">
+            <DockLayout width="70%" stretchLastChild="false">
                     <CheckBox dock="left" id="cbprivacy"  style="color:white" #CB1 text="Accetto il trattamento dei dati come specificato nelle privacy policy"
                     fillColor="white" checked="false"></CheckBox>
-                    <!-- <GridLayout dock="left" columns="5*,*" width="100%">
-                         
-                            
-                    </GridLayout>
-             -->
-             <label (tap)="readPrivacy()" style="color:white; padding-top: 20px" dock="right" text="Scopri di più" ></label>
+    
+             
+            
             </DockLayout>
-           
-            <Button dock="top" width="60%" class="btn btn-primary btn-active bxbButton" id="button" text="Registra" (tap)="onTap($event)"></Button>
+            <DockLayout width="70%" stretchLastChild="false">
+                <label (tap)="readPrivacy()" style="color:white; padding-top: 10px;" dock="left" text="Scopri di più" ></label>
+            </DockLayout>
+            <Button dock="top" width="20%" class="btn btn-primary btn-active bxbButton" id="button" text="Registra" (tap)="onTap($event)"></Button>
 
         </StackLayout>
        
@@ -40,9 +39,6 @@
     <StackLayout class="picslider" *ngIf="showSlide==true" (tap)="hideSlider()" height="100%" width="100%" clasd="m-15">
         <Image width="100%" height="100%" [src]="myImageSource"></Image>
     </StackLayout> 
-<!-- 
-    <StackLayout class="picslider" *ngIf="showSlide==true" (tap)="hideSlider()" height="100%" width="100%" clasd="m-15">
-        <Image width="100%" height="100%" [src]="myImageSource"></Image>
-    </StackLayout> -->
+
 
 
