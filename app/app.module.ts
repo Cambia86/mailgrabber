@@ -8,6 +8,7 @@ import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
 import { AppRoutingModule } from "./app.routing";
 import {HomeComponent} from "./home/home.component"
 import {PrivacyComponent} from "./privacy/privacy.component"
+import { mailgrabberService } from "~/services/mailgrabber.service";
 // import { FirstComponent, SecondComponent } from "./privacy/privacy.component";
 
 
@@ -17,7 +18,7 @@ import {PrivacyComponent} from "./privacy/privacy.component"
   entryComponents:[admimmodal,confirmmodal],
   bootstrap: [AppComponent],
   imports: [NativeScriptModule,AppRoutingModule,NativeScriptFormsModule,TNSCheckBoxModule],
-  providers: [],
+  providers: [mailgrabberService],
   schemas: [NO_ERRORS_SCHEMA],
 })
 export class AppModule {}

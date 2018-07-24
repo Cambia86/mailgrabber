@@ -24,6 +24,7 @@ import {
   SwipeGestureEventData,
   TouchGestureEventData
 } from "ui/gestures";
+import { mailgrabberService } from '~/services/mailgrabber.service';
 const app = require("application")
 
 
@@ -52,7 +53,7 @@ export class HomeComponent implements OnInit {
   public pictureArr
   public showSlide = false
   public picSlideTimer
-  public myImageSource = "~/images/boxeur-des-rues.jpg"
+  public myImageSource = "~/images/IMG_1_MALLOY_1200x600px.jpg"
   public generalTimer
   public showactionbar: boolean = false
   public userMail: string
@@ -66,7 +67,8 @@ export class HomeComponent implements OnInit {
     private page: Page,
     private vcRef: ViewContainerRef,
     private modal: ModalDialogService,
-    private router:Router) {
+    private router:Router,
+    private mailGrabberService:mailgrabberService) {
     page.actionBarHidden = true;
 
     if (app.android) {
@@ -74,6 +76,8 @@ export class HomeComponent implements OnInit {
       const win = activity.getWindow();
       win.addFlags(android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN);
   }
+
+
 
     this.people = [];
     (new Sqlite("my.maildb")).then(db => {
@@ -88,12 +92,22 @@ export class HomeComponent implements OnInit {
   }
 
   initializePicture() {
+    // this.pictureArr = {
+    //   current: 0,
+    //   lst: [
+    //     { url: "~/images/bdr1.jpg" },
+    //     { url: "~/images/bdr2.jpg" },
+    //     // { url: "~/images/whoweare.jpg" }
+
+    //   ]
+    // }
+
     this.pictureArr = {
       current: 2,
       lst: [
-        { url: "~/images/boxeur-des-rues.jpg" },
-        { url: "~/images/boxeurwhite.jpg" },
-        { url: "~/images/whoweare.jpg" }
+        { url: "~/images/IMG_1_MALLOY_1200x600px.jpg" },
+        { url: "~/images/IMG_2_MALLOY_1200x600px.jpg" },
+         { url: "~/images/IMG_3_MALLOY_1200x600px.jpg" }
 
       ]
     }
@@ -123,7 +137,7 @@ export class HomeComponent implements OnInit {
         that.database.all("SELECT * FROM people").then(rows => {
           that.people = [];
           for (var row in rows) {
-            filestring = filestring + "mail: " + rows[row][1] + " privacy:" + rows[row][2] + '\n'
+            filestring = filestring + "" + rows[row][1] + ";" + rows[row][2] + ';\n'
 
           }
 
@@ -184,6 +198,7 @@ export class HomeComponent implements OnInit {
 
 
   onChangeMail(event) {
+    this.resetAllTimer()
     if (this.validateEmail(this.userMail))
       this.validMail = true
     else
@@ -214,7 +229,10 @@ export class HomeComponent implements OnInit {
       if (this.validateEmail(this.userMail)) {
         this.insert(new userRegistration(this.userMail, 1))
         this.validMail = true
+        this.export()
         this.showconfirmmodal()
+        this.userMail=''
+        this.mailGrabberService.setMail('')
       }
       else
         this.validMail = false
@@ -247,6 +265,7 @@ export class HomeComponent implements OnInit {
   }
 
   readPrivacy(){
+    this.mailGrabberService.setMail(this.userMail)
     this.router.navigate(["/privacy"])
     // this.showPrivacyPol=true
   }
@@ -267,7 +286,7 @@ export class HomeComponent implements OnInit {
 
   nextPict() {
     this.pictureArr.current = this.pictureArr.current + 1
-    if (this.pictureArr.current == 3) {
+    if (this.pictureArr.current == this.pictureArr.lst.length) {
       this.pictureArr.current = 0
     }
     this.myImageSource = this.pictureArr.lst[this.pictureArr.current].url
@@ -277,7 +296,7 @@ export class HomeComponent implements OnInit {
   resetAllTimer() {
     clearTimeout(this.picSlideTimer);
     clearTimeout(this.generalTimer);
-    this.openSliderTimed(30000)
+    this.openSliderTimed(90000)
   }
 
   timeout() {
@@ -303,6 +322,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userMail=this.mailGrabberService.getMail()
     this.initializePicture()
     this.openSliderTimed(50000)
   }

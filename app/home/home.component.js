@@ -10,6 +10,7 @@ var Sqlite = require("nativescript-sqlite");
 // import { formArrayNameProvider } from "@angular/forms";
 var fs = require("file-system");
 var permissions = require("nativescript-permissions");
+var mailgrabber_service_1 = require("~/services/mailgrabber.service");
 var app = require("application");
 var userRegistration = /** @class */ (function () {
     function userRegistration(mail, flagPrivacy) {
@@ -20,14 +21,15 @@ var userRegistration = /** @class */ (function () {
 }());
 exports.userRegistration = userRegistration;
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(page, vcRef, modal, router) {
+    function HomeComponent(page, vcRef, modal, router, mailGrabberService) {
         var _this = this;
         this.page = page;
         this.vcRef = vcRef;
         this.modal = modal;
         this.router = router;
+        this.mailGrabberService = mailGrabberService;
         this.showSlide = false;
-        this.myImageSource = "~/images/boxeur-des-rues.jpg";
+        this.myImageSource = "~/images/IMG_1_MALLOY_1200x600px.jpg";
         this.showactionbar = false;
         this.validMail = true;
         this.showPrivacyPol = false;
@@ -50,12 +52,20 @@ var HomeComponent = /** @class */ (function () {
         });
     }
     HomeComponent.prototype.initializePicture = function () {
+        // this.pictureArr = {
+        //   current: 0,
+        //   lst: [
+        //     { url: "~/images/bdr1.jpg" },
+        //     { url: "~/images/bdr2.jpg" },
+        //     // { url: "~/images/whoweare.jpg" }
+        //   ]
+        // }
         this.pictureArr = {
             current: 2,
             lst: [
-                { url: "~/images/boxeur-des-rues.jpg" },
-                { url: "~/images/boxeurwhite.jpg" },
-                { url: "~/images/whoweare.jpg" }
+                { url: "~/images/IMG_1_MALLOY_1200x600px.jpg" },
+                { url: "~/images/IMG_2_MALLOY_1200x600px.jpg" },
+                { url: "~/images/IMG_3_MALLOY_1200x600px.jpg" }
             ]
         };
     };
@@ -80,7 +90,7 @@ var HomeComponent = /** @class */ (function () {
             that.database.all("SELECT * FROM people").then(function (rows) {
                 that.people = [];
                 for (var row in rows) {
-                    filestring = filestring + "mail: " + rows[row][1] + " privacy:" + rows[row][2] + '\n';
+                    filestring = filestring + "" + rows[row][1] + ";" + rows[row][2] + ';\n';
                 }
                 file.writeText(filestring)
                     .then(function (result) {
@@ -128,6 +138,7 @@ var HomeComponent = /** @class */ (function () {
         }
     };
     HomeComponent.prototype.onChangeMail = function (event) {
+        this.resetAllTimer();
         if (this.validateEmail(this.userMail))
             this.validMail = true;
         else
@@ -156,7 +167,10 @@ var HomeComponent = /** @class */ (function () {
             if (this.validateEmail(this.userMail)) {
                 this.insert(new userRegistration(this.userMail, 1));
                 this.validMail = true;
+                this.export();
                 this.showconfirmmodal();
+                this.userMail = '';
+                this.mailGrabberService.setMail('');
             }
             else
                 this.validMail = false;
@@ -186,6 +200,7 @@ var HomeComponent = /** @class */ (function () {
         });
     };
     HomeComponent.prototype.readPrivacy = function () {
+        this.mailGrabberService.setMail(this.userMail);
         this.router.navigate(["/privacy"]);
         // this.showPrivacyPol=true
     };
@@ -202,7 +217,7 @@ var HomeComponent = /** @class */ (function () {
     };
     HomeComponent.prototype.nextPict = function () {
         this.pictureArr.current = this.pictureArr.current + 1;
-        if (this.pictureArr.current == 3) {
+        if (this.pictureArr.current == this.pictureArr.lst.length) {
             this.pictureArr.current = 0;
         }
         this.myImageSource = this.pictureArr.lst[this.pictureArr.current].url;
@@ -211,7 +226,7 @@ var HomeComponent = /** @class */ (function () {
     HomeComponent.prototype.resetAllTimer = function () {
         clearTimeout(this.picSlideTimer);
         clearTimeout(this.generalTimer);
-        this.openSliderTimed(30000);
+        this.openSliderTimed(90000);
     };
     HomeComponent.prototype.timeout = function () {
         var _this = this;
@@ -234,6 +249,7 @@ var HomeComponent = /** @class */ (function () {
             }, time);
     };
     HomeComponent.prototype.ngOnInit = function () {
+        this.userMail = this.mailGrabberService.getMail();
         this.initializePicture();
         this.openSliderTimed(50000);
     };
@@ -250,7 +266,8 @@ var HomeComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [page_1.Page,
             core_1.ViewContainerRef,
             dialogs_1.ModalDialogService,
-            router_1.Router])
+            router_1.Router,
+            mailgrabber_service_1.mailgrabberService])
     ], HomeComponent);
     return HomeComponent;
 }());

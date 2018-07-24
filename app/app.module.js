@@ -10,6 +10,7 @@ var angular_1 = require("nativescript-checkbox/angular");
 var app_routing_1 = require("./app.routing");
 var home_component_1 = require("./home/home.component");
 var privacy_component_1 = require("./privacy/privacy.component");
+var mailgrabber_service_1 = require("~/services/mailgrabber.service");
 // import { FirstComponent, SecondComponent } from "./privacy/privacy.component";
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -20,7 +21,7 @@ var AppModule = /** @class */ (function () {
             entryComponents: [adminmodal_component_1.admimmodal, confirm_component_1.confirmmodal],
             bootstrap: [app_component_1.AppComponent],
             imports: [nativescript_module_1.NativeScriptModule, app_routing_1.AppRoutingModule, forms_1.NativeScriptFormsModule, angular_1.TNSCheckBoxModule],
-            providers: [],
+            providers: [mailgrabber_service_1.mailgrabberService],
             schemas: [core_1.NO_ERRORS_SCHEMA],
         })
     ], AppModule);
